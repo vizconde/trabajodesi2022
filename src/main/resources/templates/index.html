@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head><meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /></head>
+  <body>
+	
+    <div style="text-align: right;">
+	        <div>Bienvenido: <span sec:authentication="name"></span></div>
+	        <div>Permisos:<span sec:authentication="principal.authorities"> </span></div>
+        <form th:action="@{/logout}" method="post">
+	        <input type="submit" value="Logout" />
+	    </form>
+	</div>  
+	
+   <div class="starter-template">
+        <h1>Sistema de Información del Clima </h1>
+        <h2>
+            <span th:text="'Bienvenido/a'"></span>
+        </h2>
+    </div>
+    
+    <a th:href="personasBuscar">Buscar Personas</a>
+    <a th:href="personasEditar">Registrar Persona</a>
+    <a th:href="ciudadesBuscar">Buscar Ciudades</a>
+    <a th:href="ciudadEditar">Registrar Ciudad</a>
+    <a th:href="registrarClima">Registrar Clima</a>
+    <a th:href="eventoExtremoCrear">Registrar Evento Extremo</a>  
+    
+    
+    
+
+        
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title><span th:text="#{pronostico.editar.title}"/></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<body>
+	<div class="starter-template">
+        <h1><span  th:text="#{empresa}" /></h1>
+        <h2 th:text="${formBean.id} ? #{pronostico.mostrar.titulo}: #{pronostico.mostrar.titulo}" />    
+    </div>
+    
+ 
+
+	
+	    
+	
+	<!--Tabla para mostrar pronosticos cargados-->
+	 <table  class="resultados" border="0" style="align-self: center;">
+		    <thead>
+		      <tr>
+		        <th ><label th:text="#{pronostico.ciudad}" /></th>
+		        <th ><label th:text="#{pronostico.fechaPronostico}" /></th>
+		         <th ><label th:text="#{pronostico.probabilidadLluvia}" /></th>
+		        <th ><label th:text="#{pronostico.lluviaPrevista}" /></th>
+		        <th ><label th:text="#{pronostico.descripcionPronostico}" /></th>
+		        <th ></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr th:each="p : ${allPronActuales}">
+				    <!--<td th:text="${{p.id}}"></td>
+			        
+			        
+			        
+			        
+			        -->
+			        <td th:text="${{p.ciudad.nombre}}" ></td>
+			        <td th:text="${{#dates.format(p.fechaPronostico,'dd-MM-yyyy')}}"></td>
+			        <td th:text="${{p.probabilidadLluvia}}"></td>
+			        <td th:text="${{p.lluviaPrevista}}" ></td>
+			        <td th:text="${{p.descripcionPronostico}}" ></td>              
+			        
+		      </tr>
+		    </tbody>
+	    </table>
+    
+
+</body>
+</html>	
